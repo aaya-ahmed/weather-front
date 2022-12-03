@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>المناخ اليوم</title>
+        <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+        <link href="./assets/style/style.css" rel="stylesheet"/>
+        <link href="./assets/style/circle.css" rel="stylesheet"/>
+        <link href="./assets/style/largescreen.css" rel="stylesheet"/>
+        <link href="./assets/style/smallscreen.css" rel="stylesheet"/>
+    </head>
+    <body>
+
+        <header>
+            <h1>مناخ اليوم</h1>
+        </header>
+        <main>
+            <div class="country">
+                <div class="selCountry">
+                    <label for="selCountry">المدينه</label>
+                    <select id="selCountry">
+                    </select>
+                </div>
+                <div class="loading">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="weather-result">
+                <img src="./assets/images/noweather.png">
+                <p></p>
+                <p></p>
+            </div>
+            <div class="weather">
+                <div class="wind">
+                    <h4>سرعه الرياح</h4>
+                    <img src="./assets/images/windstatus.png">
+                    <p></p>
+                </div>
+                <div class="pressure">
+                    <h4>الضغط</h4>
+                    <img src="./assets/images/pressure.png">
+                    <p></p>
+                </div>
+                <div class="humidity">
+                    <h4>الرطوبه</h4>
+                    <img src="./assets/images/humidity.png">
+                    <p></p>
+                </div>
+                <div class="visibility">
+                    <h4>الوضوح</h4>
+                    <img src="./assets/images/visibility.png">
+                    <p></p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            copy &copy; right
+        </footer>
+        <div class="background"></div>
+        <script type="module" src="./assets/script/script.js"></script>
+    </body>
+</html>

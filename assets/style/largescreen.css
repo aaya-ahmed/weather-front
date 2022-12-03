@@ -1,0 +1,10 @@
+@media(max-width:1290px){
+    main {
+        width: 70%;
+    }
+}
+@media(max-width:1200px){
+    .loading {
+        margin: 1rem 1.5rem;
+    }
+}
