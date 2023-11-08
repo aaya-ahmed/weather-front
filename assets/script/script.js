@@ -29,7 +29,7 @@ const generatelist=(list,parent,child,value='',innerhtml)=>{
     parent.querySelector('option').setAttribute('selected',true)
 }
 const getWeatherFromDB=async (lat,lon)=>{
-    await fetch(`https://api.weatherapi.com/v1/current.json?key=377a089234ad4ba1ad1152042230811&q=${lat},${lon}&aqi=no`,{
+    await fetch(`https://api.weatherapi.com/v1/current.json?key=377a089234ad4ba1ad1152042230811&q=${lat},${lon}&aqi=no&lang=ar`,{
         method:"GET",
         headers:{
             'Content-Type':'application/json',
@@ -41,10 +41,10 @@ const getWeatherFromDB=async (lat,lon)=>{
             res=>{
                 console.log(res)
                 data={
-                        wind:(res.current.wind_kph)+"kph",
+                        wind:(res.current.wind_kph)+"كم / ساعه",
                         pressure:(res.current.pressure_mb),
                         humidity:(res.current.humidity)+"%",
-                        visibility:(parseInt(res.current.vis_km))+"Km",
+                        visibility:(parseInt(res.current.vis_km))+"كم",
                 }
                 if(res.current.pressure_mb>1000){
                     data['pressure']='الضغط مرتفع'

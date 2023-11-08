@@ -29,12 +29,12 @@ header h1{
 }
 main{
     width: 50%;
-    height:85%;
+    height:80%;
     margin: 2rem auto;
     background-color: #cab08157;
     border-radius: 10px;
     display: grid;
-    grid-template-rows:repeat(2,5rem) 10rem 10rem;
+    grid-template-rows:repeat(2,5rem) 12rem 15rem;
     grid-template-columns: repeat(4,25%);
     overflow-y: auto;
 }
@@ -57,8 +57,8 @@ main{
 
 }
 .country div select{
-    width: 100%;
-    padding: 0.5rem 6rem;
+    width: 150px;
+    padding: 0.5rem 0;
     outline: none;
     background-color: black;
     color: white;
