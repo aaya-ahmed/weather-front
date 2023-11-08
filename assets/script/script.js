@@ -29,11 +29,11 @@ const generatelist=(list,parent,child,value='',innerhtml)=>{
     parent.querySelector('option').setAttribute('selected',true)
 }
 const getWeatherFromDB=async (lat,lon)=>{
-    await fetch(`http://api.weatherapi.com/v1/current.json?key=377a089234ad4ba1ad1152042230811&q=${lat},${lon}&aqi=no`,{
+    await fetch(`https://api.weatherapi.com/v1/current.json?key=377a089234ad4ba1ad1152042230811&q=${lat},${lon}&aqi=no`,{
         method:"GET",
         headers:{
             'Content-Type':'application/json',
-            'mode': 'no-cors'
+            'mode': 'block'
         }
     }).then(
         res=>{return res.json()}
