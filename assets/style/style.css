@@ -29,13 +29,17 @@ header h1{
 }
 main{
     width: 50%;
-    height:80%;
+    height:85%;
     margin: 2rem auto;
     background-color: #cab08157;
     border-radius: 10px;
     display: grid;
-    grid-template-rows:repeat(2,0.25fr) 0.5fr 0.5fr;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-rows:repeat(2,5rem) 10rem 10rem;
+    grid-template-columns: repeat(4,25%);
+    overflow-y: auto;
+}
+::-webkit-scrollbar{
+    width: 0;
 }
 .country{
     display: flex;
@@ -71,28 +75,22 @@ main{
 .weather-result{
     grid-column:1/5;
     grid-row:2/4;
-    display:grid;
-    grid-template-rows: 1fr 0.5fr 0.5fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;   
 
 }
 .weather-result img{
-    grid-row: 1/2;
-    grid-column: 2/3;
-    width: 50%;
-    height: 50%;
-    transform: translate(-50%,50%);
+    width: 100px;
+    height: 100px;
 }
 .weather-result p:nth-of-type(1){
-    grid-row: 2/3;
-    grid-column: 2/3;
     font-size: 30px;
     text-align: center;
 
 }
 .weather-result p:nth-of-type(2){
-    grid-row: 3/4;
-    grid-column: 2/3;
     font-size: 100px;
     direction: ltr;
     text-align: center;

@@ -29,30 +29,31 @@ const generatelist=(list,parent,child,value='',innerhtml)=>{
     parent.querySelector('option').setAttribute('selected',true)
 }
 const getWeatherFromDB=async (lat,lon)=>{
-    await fetch(`http://api.weatherapi.com/v1/current.json?key=377a089234ad4ba1ad1152042230811&q=fayoum&aqi=no`,{
+    await fetch(`http://api.weatherapi.com/v1/current.json?key=377a089234ad4ba1ad1152042230811&q=${lat},${lon}&aqi=no`,{
         method:"GET",
         headers:{
             'Content-Type':'application/json',
-            mode: 'no-cors'
+            'mode': 'no-cors'
         }
     }).then(
         res=>{return res.json()}
         ).then(
             res=>{
-
+                console.log(res)
                 data={
-                        wind:(res.wind.speed)+"m/s",
-                        pressure:(res.main.pressure),
-                        humidity:(res.main.humidity)+"%",
-                        visibility:(parseInt(res.visibility / 1000))+"Km",
+                        wind:(res.current.wind_kph)+"kph",
+                        pressure:(res.current.pressure_mb),
+                        humidity:(res.current.humidity)+"%",
+                        visibility:(parseInt(res.current.vis_km))+"Km",
                 }
-                if(res.main.pressure>1000){
+                if(res.current.pressure_mb>1000){
                     data['pressure']='الضغط مرتفع'
                 }
                 else{data['pressure']='الضغط منخفض'}
                 weather={
-                    weather:res.weather,
-                    temp:parseInt(res.main.temp)
+                    weather:res.current.condition.text,
+                    temp:parseInt(res.current.temp_c),
+                    icon:res.current.condition.icon
                 }
             }
         )
@@ -63,13 +64,8 @@ const setweather=()=>{
         weatherdiv.querySelectorAll('p')[i].innerHTML=data[key];
         i++;
     }
-    if(weather.weather[0].main.toLowerCase()=='clear'){
-        weatherresultdiv.querySelector('img').setAttribute('src','assets/images/clear.png')
-    }
-    else if(weather.weather[0].main.toLowerCase()=='clouds'){
-        weatherresultdiv.querySelector('img').setAttribute('src','assets/images/clouds.png')  
-    }
-    weatherresultdiv.querySelectorAll('p')[0].innerHTML=weather.weather[0].description
+    weatherresultdiv.querySelector('img').setAttribute('src',weather.icon)  
+    weatherresultdiv.querySelectorAll('p')[0].innerHTML=weather.weather
     weatherresultdiv.querySelectorAll('p')[1].innerHTML=''
     weatherresultdiv.querySelectorAll('p')[1].insertAdjacentHTML(
         'afterbegin',
