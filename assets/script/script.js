@@ -29,15 +29,17 @@ const generatelist=(list,parent,child,value='',innerhtml)=>{
     parent.querySelector('option').setAttribute('selected',true)
 }
 const getWeatherFromDB=async (lat,lon)=>{
-    await fetch(`http://localhost:3000?lat=${lat}&lon=${lon}`,{
+    await fetch(`http://api.weatherapi.com/v1/current.json?key=377a089234ad4ba1ad1152042230811&q=fayoum&aqi=no`,{
         method:"GET",
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            mode: 'no-cors'
         }
     }).then(
         res=>{return res.json()}
         ).then(
             res=>{
+
                 data={
                         wind:(res.wind.speed)+"m/s",
                         pressure:(res.main.pressure),
